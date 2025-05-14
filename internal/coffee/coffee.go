@@ -1,12 +1,12 @@
 package coffee
 
-//go:generate stringer -type=Coffee
+//go:generate stringer -linecomment -type=Coffee
 
 type Coffee int
 
 const (
-	Drip Coffee = iota
-	Latte
-	Breve
-	Cappuccino
+	Drip       Coffee = iota // drip coffee
+	Latte                    // latte
+	Breve                    // breve
+	Cappuccino               // cappuccino
 )
