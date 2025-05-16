@@ -22,11 +22,10 @@ func (c Coffee) MarshalText() ([]byte, error) {
 
 func (c *Coffee) UnmarshalText(text []byte) error {
 	want := string(text)
-	// iterate all valid values (0 .. len(_Coffee_index)-2)
-	for i := Coffee(0); i < Coffee(len(_Coffee_index)-1); i++ {
+	for i := 0; i < len(_Coffee_index)-1; i++ {
 		name := _Coffee_name[_Coffee_index[i]:_Coffee_index[i+1]]
-		if strings.EqualFold(name, want) { // or if name==want for exact match
-			*c = i
+		if strings.EqualFold(name, want) {
+			*c = Coffee(i)
 			return nil
 		}
 	}
